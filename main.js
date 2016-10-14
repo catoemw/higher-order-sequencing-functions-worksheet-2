@@ -98,5 +98,36 @@ function find (array, callback) {
 	return found;
 }
 
-console.log(find(plays, rejectTest));
+console.assert(typeof find(plays, rejectTest) === 'object');
+console.assert(find(plays, rejectTest)['year'] === 1949);
+
+// EXERCISE 4
+
+function where (array, criteria) {
+	var whereArr = filter(array, function(value) {
+		for (var prop in criteria) {
+			if (value[prop] === criteria[prop]) {
+				return true;
+			}
+		}
+	});
+	return whereArr;
+}
+
+console.assert(where(plays, { author: 'Shakespeare' }).length === 5);
+console.assert(typeof where(plays, { author: 'Shakespeare' }) === 'object');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
